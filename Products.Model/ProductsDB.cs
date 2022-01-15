@@ -26,7 +26,7 @@ namespace Products.Model
             if (!optionsBuilder.IsConfigured)
             {
                 var str = File.ReadAllText("connection_string.cfg");
-                optionsBuilder.UseMySQL(str);
+                optionsBuilder.UseLazyLoadingProxies().UseMySQL(str);
             }
         }
 
