@@ -8,7 +8,6 @@ namespace Products.App
 {
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Product> _products;
         private ObservableCollection<ProductType> _types;
         private ProductsDB _db;
         
@@ -17,10 +16,9 @@ namespace Products.App
             InitializeComponent();
 
             _db = new ProductsDB();
-            _products = new ObservableCollection<Product>(_db.TabProducts);
             _types = new ObservableCollection<ProductType>(_db.TabTypes);
-
-            ProductsList.ItemsSource = _products;
+            
+            ProductsList.ItemsSource = _db.TabProducts.ToList();
             ProductType.ItemsSource = _types;
         }
 
@@ -31,6 +29,20 @@ namespace Products.App
             ProductId.Text = product?.Id.ToString() ?? "null";
             ProductName.Text = product?.Name ?? "null";
             ProductType.SelectedItem = product?.IdTypeNavigation;
+        }
+
+        private void Button_Save_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = int.Parse(ProductId.Text);
+            var product_type = ProductType.SelectedItem as ProductType;
+            
+            var product = _db.TabProducts.Find(id);
+            product.Name = ProductName.Text;
+            product.IdTypeNavigation = product_type;
+            
+            ProductsList.ItemsSource = _db.TabProducts.ToList();
+            
+            _db.SaveChanges();
         }
     }
 }

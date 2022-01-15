@@ -64,7 +64,8 @@
             <StackPanel Style="{StaticResource Style_GroupButton}">
                 <Button x:Name="Button_Save"
                         Content="Save"
-                        Style="{StaticResource Style_Button}"/>
+                        Style="{StaticResource Style_Button}"
+                        Click="Button_Save_OnClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>
