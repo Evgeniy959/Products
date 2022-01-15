@@ -17,7 +17,13 @@
         </Grid.ColumnDefinitions>
         
         <ListBox x:Name="ProductsList"
-                 Grid.Column="0" />
+                 Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         
         <StackPanel Grid.Column="1">
             <StackPanel Orientation="Horizontal">
@@ -39,7 +45,13 @@
                        Content="Type"
                        Style="{StaticResource Style_Label}"/>
                 <ComboBox x:Name="ProductType"
-                          Style="{StaticResource Style_Input}"/>
+                          Style="{StaticResource Style_Input}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
         </StackPanel>
     </Grid>
