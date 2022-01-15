@@ -403,3 +403,4 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/csharp
 
 .idea/
+Products.Model/connection_string.cfg
