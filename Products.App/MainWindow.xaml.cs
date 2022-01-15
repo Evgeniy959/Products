@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using Products.Model;
 
 namespace Products.App
@@ -21,6 +22,15 @@ namespace Products.App
 
             ProductsList.ItemsSource = _products;
             ProductType.ItemsSource = _types;
+        }
+
+        private void ProductsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var product = (sender as ListBox)?.SelectedItem as Product;
+
+            ProductId.Text = product?.Id.ToString() ?? "null";
+            ProductName.Text = product?.Name ?? "null";
+            ProductType.SelectedItem = product?.IdTypeNavigation;
         }
     }
 }

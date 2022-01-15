@@ -17,7 +17,8 @@
         </Grid.ColumnDefinitions>
         
         <ListBox x:Name="ProductsList"
-                 Grid.Column="0">
+                 Grid.Column="0"
+                 SelectionChanged="ProductsList_OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=Name}"/>
