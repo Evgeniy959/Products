@@ -1,0 +1,13 @@
+﻿CREATE TABLE tab_types (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL 
+);
+
+CREATE TABLE tab_products (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    id_type INT NOT NULL,
+    FOREIGN KEY (id_type) REFERENCES tab_types(id) 
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
