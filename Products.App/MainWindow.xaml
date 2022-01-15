@@ -6,7 +6,41 @@
         xmlns:local="clr-namespace:Products.App"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="Styles.xaml"/>
+    </Window.Resources>
+    
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        
+        <ListBox x:Name="ProductsList"
+                 Grid.Column="0" />
+        
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="Label_ProductId"
+                       Content="Id"
+                       Style="{StaticResource Style_Label}"/>
+                <TextBox x:Name="ProductId"
+                         Style="{StaticResource Style_Input}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="Label_ProductName"
+                       Content="Name"
+                       Style="{StaticResource Style_Label}"/>
+                <TextBox x:Name="ProductName"
+                         Style="{StaticResource Style_Input}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="Label_ProductType"
+                       Content="Type"
+                       Style="{StaticResource Style_Label}"/>
+                <ComboBox x:Name="ProductType"
+                          Style="{StaticResource Style_Input}"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
