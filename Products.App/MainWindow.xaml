@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Products.App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Products" Height="350" Width="550">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"/>
     </Window.Resources>
@@ -27,6 +27,7 @@
         </ListBox>
         
         <StackPanel Grid.Column="1">
+            <!-- ProductId -->
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="Label_ProductId"
                        Content="Id"
@@ -34,6 +35,8 @@
                 <TextBox x:Name="ProductId"
                          Style="{StaticResource Style_Input}"/>
             </StackPanel>
+            
+            <!-- ProductName -->
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="Label_ProductName"
                        Content="Name"
@@ -41,6 +44,8 @@
                 <TextBox x:Name="ProductName"
                          Style="{StaticResource Style_Input}"/>
             </StackPanel>
+            
+            <!-- ProductType -->
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="Label_ProductType"
                        Content="Type"
@@ -53,6 +58,13 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+            </StackPanel>
+            
+            <!-- Button -->
+            <StackPanel Style="{StaticResource Style_GroupButton}">
+                <Button x:Name="Button_Save"
+                        Content="Save"
+                        Style="{StaticResource Style_Button}"/>
             </StackPanel>
         </StackPanel>
     </Grid>
